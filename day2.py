@@ -31,6 +31,17 @@ def is_safe_with_dampener(numbers):
     
     return False
 
+def count_safe_reports(input_data):
+    safe_count = 0
+    
+    for line in input_data.strip().split('\n'):
+
+        numbers = list(map(int, line.split()))
+        if is_valid_sequence(numbers):
+            safe_count += 1
+    
+    return safe_count
+
 def count_safe_reports_with_dampener(input_data):
     safe_count = 0
     
@@ -42,6 +53,9 @@ def count_safe_reports_with_dampener(input_data):
     
     return safe_count
 
-result = count_safe_reports_with_dampener(data)
-print(f"Number of safe reports with Problem Dampener: {result}")  
+result1 = count_safe_reports(data)
+result2 = count_safe_reports_with_dampener(data)
+
+print(f"Number of safe reports for part 1: {result1}")  
+print(f"Number of safe reports with Problem Dampener: {result2}")  
 
